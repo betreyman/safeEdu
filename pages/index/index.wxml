@@ -1,0 +1,3 @@
+{{title}}
+<view class="{{on}}">{{title}}</view>
+<view wx:if="show">{{arr[0]}}:{{testObj.name}}</view>
