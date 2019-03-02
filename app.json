@@ -18,7 +18,7 @@
     "backgroundColorTop":"#eeeeee",
     "backgroundColorBottom":"#eeeeee",
     "enablePullDownRefresh": true,
-    "onReachBottomDistance":50,
+    "onReachBottomDistance":100,
     "pageOrientation":"auto"
   },
   "tabBar": {
@@ -50,8 +50,8 @@
     ]
   },
   "networkTimeout": {
-    "request": 20000,
-    "connectSocket": 20000,
+    "request": 5000,
+    "connectSocket": 5000,
     "uploadFile": 60000,
     "downloadFile": 60000
   },
@@ -60,34 +60,5 @@
   "workers": "workers",
   "requiredBackgroundModes": [
     "audio"
-  ],
-  "permission":{
-    "scope.userInfo":{
-      "desc":"通过微信获取用户信息"
-    },
-    "scope.userLocation": {
-      "desc": "通过微信获取你的位置信息"
-    },
-    "scope.address": {
-      "desc": "通过微信获取通讯地址信息"
-    },
-    "scope.invoiceTitle": {
-      "desc": "通过微信获取发票抬头信息"
-    },
-    "scope.invoice": {
-      "desc": "通过微信获取发票信息"
-    },
-    "scope.werun": {
-      "desc": "通过微信获取微信运动步数信息"
-    },
-    "scope.record": {
-      "desc": "通过微信获取录音功能功能"
-    },
-    "scope.writePhotosAlbum": {
-      "desc": "通过微信获取保存到相册功能"
-    },
-    "scope.camera": {
-      "desc": "通过微信获取摄像头功能"
-    }
-  }
+  ]
 }

@@ -1,4 +1,8 @@
 // pages/courses/courses.js
+console.log('加载 page.js')
+var count = 0
+//用于避免事件重复提交
+var hasClick = false;
 Page({
 
   /**
@@ -12,7 +16,24 @@ Page({
     array: [{ text: 'init data' }],
     object: {
       text: 'init data'
-    }
+    },
+    loading: false
+  },
+  tap:function(){
+    // 把按钮的loading状态显示出来
+
+    this.setData({
+
+      loading: true
+
+    })
+
+    // 接着做耗时的操作
+  },
+  nativetap:function(){
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
   },
   getUserInfo(){
     wx.getLocation({
@@ -40,9 +61,13 @@ Page({
     })
     // this.data.text = 'changed data' // 不要直接修改 this.data
     // 应该使用 setData
+    //逻辑层通过 Page 实例的 setData 方法传递数据到渲染层
     this.setData({
       text: 'changed data'
+    },function(){
+      
     })
+    
   },
   changeNum() {
     // 或者，可以修改 this.data 之后马上用 setData 设置一下修改了的字段
@@ -71,21 +96,72 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    count += 1
+    console.log('第 ' + count + ' 次启动这个页面')
+    //getApp()获取app.js中定义的全局对象
+    // var localUserInfo = getApp()
+    // console.log(localUserInfo.globalData.userInfo)
+    // localUserInfo.globalData.userInfo.name="mxj"
+    // //console.log(localUserInfo.globalData.userInfo)
+    // this.setData({text:"onload"},function(){
+    //   console.log("callback: onLoad" )
+    // })
+    //模态对话框
+    // wx.showModal({
 
+    //   title: '标题',
+
+    //   content: '告知当前状态，信息和解决方法',
+
+    //   confirmText: '主操作',
+
+    //   cancelText: '次要操作',
+
+    //   success: function (res) {
+
+    //     if (res.confirm) {
+
+    //       console.log('用户点击主操作')
+
+    //     } else if (res.cancel) {
+
+    //       console.log('用户点击次要操作')
+
+    //     }
+
+    //   }
+
+    //})
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    // this.setData({text:'onReady'},function(){
+    //   console.log("callback: onReady")
+    // })
+    // wx.showToast({ // 显示Toast
 
+    //   title: '已发送',
+
+    //   icon: 'success',
+
+    //   duration: 1500
+
+    // })
+
+    // wx.hideToast() // 隐藏Toast
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    console.log("Page.route : "+this.route)
+    //console.log("Page.route : "+this.route)
+    // this.setData({text:'onShow'},function(){
+    //   console.log("callback: onShow")
+    // })
   },
 
   /**
@@ -106,14 +182,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    console.log("onPullDownRefresh: onRun")
+    wx.stopPullDownRefresh()
   },
 
   /**
    * 页面上拉触底事件的处理函数
+   * // 当界面的下方距离页面底部距离小于100像素时触发回调
    */
   onReachBottom: function() {
-
+    console.log("onReachBottom: onRun")
   },
 
   /**
@@ -133,8 +211,10 @@ Page({
     }
   },
   //页面滚动触发事件的处理函数
-  onPageScroll() {
+  onPageScroll(options) {
     // Do something when page scroll
+    //console.log("onPageScroll: onRun" + options.scrollTop)
+    
   },
   //页面尺寸改变时触发
   onResize() {
@@ -157,5 +237,31 @@ Page({
   },
   customData: {
     hi: 'MINA'
+  },
+  //正常页面请求服务器数据业务逻辑
+  testTap: function () {
+    if (hasClick) {
+      return
+    }
+    hasClick = true
+    wx.showLoading()
+    wx.request({
+      url: 'https://test.com/getinfo',
+      method: 'POST',
+      header: { 'content-type': 'application/json' },
+      data: {},
+      success: function (res) {
+        if (res.statusCode === 200) {
+          console.log(res.data)// 服务器回包内容
+        }
+      },
+      fail: function (res) {
+        wx.showToast({ title: '系统错误' })
+      },
+      complete: function (res) {
+        wx.hideLoading()
+        hasClick = false
+      }
+    })
   }
 })

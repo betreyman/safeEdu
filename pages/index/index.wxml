@@ -1,3 +1,4 @@
 {{title}}
 <view class="{{on}}">{{title}}</view>
 <view wx:if="show">{{arr[0]}}:{{testObj.name}}</view>
+<button loading="{{loading}}" bindtap="nativetap">页面跳转</button>

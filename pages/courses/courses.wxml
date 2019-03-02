@@ -9,3 +9,8 @@
 <view>{{newField.text}}</view>
 <button bindtap="addNewField">Add new data</button>
 <button bindtap='getUserInfo'>userInfo</button>
+<button loading="{{loading}}" bindtap="tap">操作</button>
+<button bindtap='getUserInfo'>userInfo</button>
+<button loading="{{loading}}" bindtap="nativetap">页面跳转</button>
+<button bindtap='getUserInfo'>userInfo</button>
+<button loading="{{loading}}" bindtap="tap">操作</button>

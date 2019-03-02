@@ -15,7 +15,12 @@ Page({
     },
     arr:['name','age']
   },
-
+  nativetap: function () {
+    //无法跳转tabBar页面
+    wx.navigateTo({
+      url: '/pages/courses/courses',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
