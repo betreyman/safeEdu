@@ -1,8 +1,10 @@
 {
   "pages": [ 
     "pages/courses/courses",
-    "pages/index/index",
+    "pages/findPwd/findPwd",
     "pages/login/login",
+    "pages/index/index",
+    "pages/register/comReg",
     "pages/register/register",
     "pages/recover/recover",
     "pages/safeInfos/safeInfos",

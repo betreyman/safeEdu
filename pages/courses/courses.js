@@ -19,7 +19,10 @@ Page({
     },
     loading: false
   },
-  tap:function(){
+  tapPullDown: function () {
+    //wx.startPullDownRefresh()
+  },
+  tap: function () {
     // 把按钮的loading状态显示出来
 
     this.setData({
@@ -30,12 +33,12 @@ Page({
 
     // 接着做耗时的操作
   },
-  nativetap:function(){
+  nativetap: function () {
     wx.navigateTo({
       url: '/pages/index/index',
     })
   },
-  getUserInfo(){
+  getUserInfo() {
     wx.getLocation({
       type: 'wgs84',
       success: (res) => {
@@ -50,13 +53,13 @@ Page({
   changeText() {
     wx.scanCode({
       success: (res) => {
-        console.log("res:"+res)
+        console.log("res:" + res)
       },
-      fail:(res)=>{
-        console.log("res:"+res)
+      fail: (res) => {
+        console.log("res:" + res)
       },
-      complete(res){
-        console.log("res:"+res)
+      complete(res) {
+        console.log("res:" + res)
       }
     })
     // this.data.text = 'changed data' // 不要直接修改 this.data
@@ -64,10 +67,10 @@ Page({
     //逻辑层通过 Page 实例的 setData 方法传递数据到渲染层
     this.setData({
       text: 'changed data'
-    },function(){
-      
+    }, function () {
+
     })
-    
+
   },
   changeNum() {
     // 或者，可以修改 this.data 之后马上用 setData 设置一下修改了的字段
@@ -94,8 +97,10 @@ Page({
   },
   /**
    * 生命周期函数--监听页面加载
+   * 页面加载时触发。一个页面只会调用一次，
+   * 可以在 onLoad 的参数中获取打开当前页面路径中的参数。
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     count += 1
     console.log('第 ' + count + ' 次启动这个页面')
     //getApp()获取app.js中定义的全局对象
@@ -136,8 +141,10 @@ Page({
 
   /**
    * 生命周期函数--监听页面初次渲染完成
+   * 页面初次渲染完成时触发。一个页面只会调用一次，
+   * 代表页面已经准备妥当，可以和视图层进行交互
    */
-  onReady: function() {
+  onReady: function () {
     // this.setData({text:'onReady'},function(){
     //   console.log("callback: onReady")
     // })
@@ -157,7 +164,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     //console.log("Page.route : "+this.route)
     // this.setData({text:'onShow'},function(){
     //   console.log("callback: onShow")
@@ -166,22 +173,24 @@ Page({
 
   /**
    * 生命周期函数--监听页面隐藏
+   * 页面隐藏/切入后台时触发。 如 navigateTo 或底部 tab 切换到其他页面，小程序切入后台等。
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
+   * 页面卸载时触发。如redirectTo或navigateBack到其他页面时。
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     console.log("onPullDownRefresh: onRun")
     wx.stopPullDownRefresh()
   },
@@ -190,14 +199,14 @@ Page({
    * 页面上拉触底事件的处理函数
    * // 当界面的下方距离页面底部距离小于100像素时触发回调
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     console.log("onReachBottom: onRun")
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
@@ -210,13 +219,20 @@ Page({
       path: '/page/user?id=123'
     }
   },
-  //页面滚动触发事件的处理函数
-  onPageScroll(options) {
-    // Do something when page scroll
-    //console.log("onPageScroll: onRun" + options.scrollTop)
-    
-  },
-  //页面尺寸改变时触发
+  /**
+   * 页面滚动触发事件的处理函数
+   * 请只在需要的时候才在 page 中定义此方法，不要定义空方法。
+   * 以减少不必要的事件派发对渲染层-逻辑层通信的影响。 
+   * 注意：请避免在 onPageScroll 中过于频繁的执行 setData 等引起逻辑层-渲染层通信的操作。
+   * 尤其是每次传输大量数据，会影响通信耗时。
+   */
+  // onPageScroll(options) {
+  //   // Do something when page scroll
+  //   //console.log("onPageScroll: onRun" + options.scrollTop)
+  // },
+  /**
+   * 页面尺寸改变时触发;小程序屏幕旋转时触发
+   */
   onResize() {
     // Do something when page resize
   },
@@ -231,7 +247,7 @@ Page({
     // setData 函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 this.data 的值（同步）。
     this.setData({
       text: 'Set some data for updating view.'
-    }, function() {
+    }, function () {
       // this is setData callback
     })
   },

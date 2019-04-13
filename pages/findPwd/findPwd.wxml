@@ -1,0 +1,38 @@
+<view style='margin-top:22%'>
+<view class='container'>
+  <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入登录名" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入注册时所用邮箱" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入验证码" />
+        </view>
+       <view class='yanzhengma'>
+          <text class='left'>{{code}}</text>
+          <text class='right' bindtap='changePic'>换一张　</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="weui-cell__hd" style='margin-top:20px;'>
+      <button class="weui-btn" type="primary" plain="true">密码找回</button>
+    </view>
+  </view>
+</view>
+</view>

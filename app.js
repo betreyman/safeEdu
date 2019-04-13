@@ -19,6 +19,7 @@
 //App() 函数用来注册一个小程序。接受一个 Object 参数，其指定小程序的生命周期回调等
 App({
   //小程序启动后触发 生命周期回调—监听小程序初始化 小程序初始化完成时（全局只触发一次）
+  //小程序初始化完成时触发，全局只触发一次。参数也可以使用 wx.getLaunchOptionsSync 获取。
   onLaunch: function(options) {
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
@@ -168,9 +169,11 @@ App({
   },
   //页面不存在监听函数	小程序要打开的页面不存在时触发，会带上页面信息回调该函数
   onPageNotFound: function(options) {
-
+    // wx.redirectTo({
+    //   url: 'pages/...'
+    // }) // 如果是 tabbar 页面，请使用 wx.switchTab
   },
-  //全局变量
+  //自定义全局变量
   globalData: {
     userInfo: {
       name: '', //用户姓名
@@ -181,7 +184,8 @@ App({
       appid: 'wx0235d3d7bbec6f56', //小程序ID
       secret: '7046f8213513c5f192de698a092fbbf9' //小程序密钥
     },
-    baseUrl: 'http://203.93.109.202:8050/bdp/api',
+    //baseUrl: 'http://203.93.109.202:8050/bdp/api',
+    baseUrl: 'http://localhost:8080/aqjyInit/api',
     session_key: '', //会话密钥(微信服务器给开发者服务器颁发的身份凭证，开发者可以用session_key请求微信服务器其他接口来获取一些其他信息)
     sessionId: '',
     expiredTime: ''

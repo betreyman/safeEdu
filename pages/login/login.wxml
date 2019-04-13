@@ -1,2 +1,32 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view style='margin-top:22%'>
+<view style='text-align:right;color:blue;'>
+  <navigator url="#" redirect>　注 册　</navigator>
+</view>
+<view class='container'>
+  <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入身份证号" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入密码" />
+        </view>
+      </view>
+    </view>
+
+    <view style='color:blue; margin-top:20px;'>
+      <navigator url="#" redirect>　忘记密码</navigator>
+    </view>
+
+    <view class="weui-cell__hd" style='margin-top:20px;'>
+      <button class="weui-btn" type="primary" plain="true">登　　录</button>
+    </view>
+  </view>
+</view>
+</view>

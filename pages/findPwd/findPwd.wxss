@@ -1,0 +1,23 @@
+/* pages/login/login.wxss */
+.container{
+  margin-top:60%
+}
+.yanzhengma {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.yanzhengma .left {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: bold;
+  border: 0;
+  letter-spacing: 3px;
+  font-size: 18px;
+  background-color: #ccc;
+  padding: 10rpx;
+  margin-right: 20rpx;
+  color: blue;
+}
