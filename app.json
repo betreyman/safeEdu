@@ -46,8 +46,8 @@
       {
         "pagePath": "pages/user/info",
         "text": "我的",
-        "iconPath": "pages/images/3.png",
-        "selectedIconPath": "pages/images/4.png"
+        "iconPath": "pages/images/selfInfo_A0.png",
+        "selectedIconPath": "pages/images/selfInfo_A1.png"
       }
     ]
   },
