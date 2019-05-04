@@ -35,7 +35,7 @@ Page({
         open: true,
         pages: [{
           name: '修改个人材料',
-          url: ''
+          url: 'register/register'
         }, {
           name: '修改密码',
           url: ''

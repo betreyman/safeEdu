@@ -1,1 +1,16 @@
 /* pages/courses/courses.wxss */
+.page__hd {
+    padding: 20px;
+}
+.imgClass {
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #eee;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}

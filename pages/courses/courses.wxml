@@ -1,4 +1,4 @@
-<view>{{text}}</view>
+<!-- <view>{{text}}</view>
 <button bindtap="changeText">Change normal data</button>
 <view>{{num}}</view>
 <button bindtap="changeNum">Change normal num</button>
@@ -13,4 +13,22 @@
 <button bindtap='getUserInfo'>userInfo</button>
 <button loading="{{loading}}" bindtap="nativetap">页面跳转</button>
 <button bindtap='getUserInfo'>userInfo</button>
-<button loading="{{loading}}" bindtap="tap">操作</button>
+<button loading="{{loading}}" bindtap="tap">操作</button> -->
+<view class='page'>
+  <view class='page__hd page__bd_spacing'>
+    <block class='imgContainer ' wx:for="{{headerItem}}" wx:key="id">
+      <image class='imgClass' src="{{item.imgUrl}}"></image>　
+    </block>
+  </view>
+  <view class='page__bd page__bd_spacing'>
+    <view>
+      购买课程
+    </view>
+    <view>
+      我的课程
+    </view>
+    <view>
+      在线考试
+    </view>
+  </view>
+</view>

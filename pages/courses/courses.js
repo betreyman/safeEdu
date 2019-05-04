@@ -1,5 +1,5 @@
 // pages/courses/courses.js
-console.log('加载 page.js')
+//console.log('加载 page.js')
 var count = 0
 //用于避免事件重复提交
 var hasClick = false;
@@ -11,18 +11,39 @@ Page({
    * 因此data中的数据必须是可以转成JSON的类型：字符串，数字，布尔值，对象，数组
    */
   data: {
+    headerItem: [{
+        id:"courseSale",
+        name: "购买课程",
+        url: "courseSale/courseSale",
+        imgUrl: "/pages/images/courseSale.png"
+      },
+      {
+        id: "myCourse",
+        name: "我的课程",
+        url: "myCourse/myCourse",
+        imgUrl: "/pages/images/myCourse.png"
+      },
+      {
+        id: "onExam",
+        name: "在线考试",
+        url: "onExam/onExam",
+        imgUrl: "/pages/images/onExam.png"
+      }
+    ],
     text: 'init data',
     num: 0,
-    array: [{ text: 'init data' }],
+    array: [{
+      text: 'init data'
+    }],
     object: {
       text: 'init data'
     },
     loading: false
   },
-  tapPullDown: function () {
+  tapPullDown: function() {
     //wx.startPullDownRefresh()
   },
-  tap: function () {
+  tap: function() {
     // 把按钮的loading状态显示出来
 
     this.setData({
@@ -33,7 +54,7 @@ Page({
 
     // 接着做耗时的操作
   },
-  nativetap: function () {
+  nativetap: function() {
     wx.navigateTo({
       url: '/pages/index/index',
     })
@@ -67,7 +88,7 @@ Page({
     //逻辑层通过 Page 实例的 setData 方法传递数据到渲染层
     this.setData({
       text: 'changed data'
-    }, function () {
+    }, function() {
 
     })
 
@@ -100,7 +121,7 @@ Page({
    * 页面加载时触发。一个页面只会调用一次，
    * 可以在 onLoad 的参数中获取打开当前页面路径中的参数。
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     count += 1
     console.log('第 ' + count + ' 次启动这个页面')
     //getApp()获取app.js中定义的全局对象
@@ -144,7 +165,7 @@ Page({
    * 页面初次渲染完成时触发。一个页面只会调用一次，
    * 代表页面已经准备妥当，可以和视图层进行交互
    */
-  onReady: function () {
+  onReady: function() {
     // this.setData({text:'onReady'},function(){
     //   console.log("callback: onReady")
     // })
@@ -164,7 +185,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     //console.log("Page.route : "+this.route)
     // this.setData({text:'onShow'},function(){
     //   console.log("callback: onShow")
@@ -175,7 +196,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    * 页面隐藏/切入后台时触发。 如 navigateTo 或底部 tab 切换到其他页面，小程序切入后台等。
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
@@ -183,14 +204,14 @@ Page({
    * 生命周期函数--监听页面卸载
    * 页面卸载时触发。如redirectTo或navigateBack到其他页面时。
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     console.log("onPullDownRefresh: onRun")
     wx.stopPullDownRefresh()
   },
@@ -199,14 +220,14 @@ Page({
    * 页面上拉触底事件的处理函数
    * // 当界面的下方距离页面底部距离小于100像素时触发回调
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     console.log("onReachBottom: onRun")
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
@@ -247,7 +268,7 @@ Page({
     // setData 函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 this.data 的值（同步）。
     this.setData({
       text: 'Set some data for updating view.'
-    }, function () {
+    }, function() {
       // this is setData callback
     })
   },
@@ -255,7 +276,7 @@ Page({
     hi: 'MINA'
   },
   //正常页面请求服务器数据业务逻辑
-  testTap: function () {
+  testTap: function() {
     if (hasClick) {
       return
     }
@@ -264,17 +285,21 @@ Page({
     wx.request({
       url: 'https://test.com/getinfo',
       method: 'POST',
-      header: { 'content-type': 'application/json' },
+      header: {
+        'content-type': 'application/json'
+      },
       data: {},
-      success: function (res) {
+      success: function(res) {
         if (res.statusCode === 200) {
-          console.log(res.data)// 服务器回包内容
+          console.log(res.data) // 服务器回包内容
         }
       },
-      fail: function (res) {
-        wx.showToast({ title: '系统错误' })
+      fail: function(res) {
+        wx.showToast({
+          title: '系统错误'
+        })
       },
-      complete: function (res) {
+      complete: function(res) {
         wx.hideLoading()
         hasClick = false
       }
