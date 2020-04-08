@@ -80,7 +80,8 @@ App({
               },
               method: "POST",
               header: {
-                'content-type': 'application/x-www-form-urlencoded' // 默认值
+                'content-type': 'application/x-www-form-urlencoded', // 默认值
+                'token':this.globalData.sessionId
               },
               success: function(res) {
                 // 登录成功

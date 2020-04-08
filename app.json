@@ -1,5 +1,5 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/courses/courses",
     "pages/findPwd/findPwd",
     "pages/login/login",
@@ -14,22 +14,22 @@
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "安全教育",
-    "navigationStyle":"default",
+    "navigationStyle": "default",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "dark",
-    "backgroundColorTop":"#eeeeee",
-    "backgroundColorBottom":"#eeeeee",
+    "backgroundColorTop": "#eeeeee",
+    "backgroundColorBottom": "#eeeeee",
     "enablePullDownRefresh": true,
-    "onReachBottomDistance":100,
-    "pageOrientation":"auto"
+    "onReachBottomDistance": 100,
+    "pageOrientation": "auto"
   },
   "tabBar": {
     "color": "#000000",
     "selectedColor": "#E22236",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
-    "position":"bottom",
-    "custom":false,
+    "position": "bottom",
+    "custom": false,
     "list": [
       {
         "pagePath": "pages/courses/courses",
@@ -58,9 +58,10 @@
     "downloadFile": 60000
   },
   "debug": true,
-  "functionalPages":true,
+  "functionalPages": true,
   "workers": "workers",
   "requiredBackgroundModes": [
     "audio"
-  ]
+  ],
+  "sitemapLocation": "sitemap.json"
 }
